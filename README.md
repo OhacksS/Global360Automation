@@ -4,13 +4,13 @@
 
 This project automates asset management tasks on the [SnipeIT demo site](https://demo.snipeitapp.com/login) using **.NET 9.0**, **PowerShell 7.5.2**, and the latest version of **Microsoft Playwright** for browser automation.
 
-The automation script performs the following:
+The automation script performs these key steps in a single `Program.cs` file, organized from Step A to Step E:
 
-- Logs into the SnipeIT demo site as an admin user.
-- Creates a new **Macbook Pro 13"** asset with the status "Ready to Deploy" and assigns it to a random user.
-- Searches the assets list to verify that the newly created asset exists.
-- Navigates to the asset page to validate the asset details.
-- Checks the asset’s history tab to confirm changes and status updates.
+- **Step A:** Login to the SnipeIT demo site as an admin user.
+- **Step B:** Create a new **Macbook Pro 13"** asset with status "Ready to Deploy" and assign it to a random user.
+- **Step C:** Find the newly created asset in the asset list to verify it was successfully created.
+- **Step D:** Navigate to the asset page and validate relevant asset details.
+- **Step E:** Validate the details in the **History** tab on the asset page.
 
 ### Challenges faced
 
@@ -65,3 +65,11 @@ dotnet run
 The script will launch a Chromium browser and perform all automation steps, including login, asset creation, verification, and history validation.
 
 ## Project Structure
+ ├── Program.cs      # All automation steps (A to E) implemented in this single file<br>
+ ├── SnipeitAutomation.cs       # Targets .NET 9.0 and uses Microsoft.Playwright v1.54.0 for browser automation.<br>
+ ├── README.md       # Project documentation
+ 
+## Author
+Omkar Sankpal
+Email: omkarsankpal45@gmail.com
+
