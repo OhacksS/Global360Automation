@@ -23,6 +23,7 @@ class Program
         var page = await context.NewPageAsync();
 
     // Step A: Login
+        Console.WriteLine("Step A: Logging in...");
         await page.GotoAsync("https://demo.snipeitapp.com/login"); //Go to login Page
         await page.FillAsync("#username", "admin"); // Default demo login credentials
         await page.FillAsync("#password", "password");
@@ -31,8 +32,8 @@ class Program
 
         Console.WriteLine("Logged in successfully!"); 
 
-    // Step B: Navigate to Assets & Create Asset
-
+    // Step B: Create a new Macbook Pro 13" Asset
+        Console.WriteLine("Step B: Creating new asset...");
         await page.ClickAsync("text=New");
         await page.ClickAsync("//nav//li[7]//li[1]/a");
 
@@ -142,7 +143,8 @@ class Program
         Console.WriteLine("Asset created!");
         await page.WaitForTimeoutAsync(3000); //wait until asset is created
 
-    // Step C: Search asset
+    // Step C: Find the asset in the asset list
+        Console.WriteLine("Step C: Verifying asset in list...");
         await page.ClickAsync("text=Assets");  //click on asset icon on navbar
         await page.FillAsync("//input[@type='search']", AssetTag); //search asset via asset tag
         await page.WaitForTimeoutAsync(3000); //wait until asset tag input
@@ -163,8 +165,8 @@ class Program
         }
 
 
-    // Step D: Validate details
-
+    // Step D: Navigate to asset page and validate details
+        Console.WriteLine("Step D: Validating asset details...");
         await page.ClickAsync($"//mark[text()='{AssetTag}']"); //navigate to asset details page via asset list
         await page.WaitForTimeoutAsync(3000);
         //Model details validation
@@ -191,8 +193,8 @@ class Program
             }
         }
 
-    // Step E: Validate history tab
-
+    // Step E: Validate History tab details
+        Console.WriteLine("Step E: Validating History tab...");
         await page.Locator("a[href='#history']").ClickAsync(); //Navigate to History Tab
         await page.WaitForTimeoutAsync(3000);
         if (await page.Locator($"//a[@data-original-title='user' and contains(normalize-space(text()), '{UserName}')]").IsVisibleAsync()) //checks if the user is correct
