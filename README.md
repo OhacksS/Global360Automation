@@ -12,18 +12,22 @@ The automation script performs these key steps in a single `Program.cs` file, or
 - **Step D:** Navigate to the asset page and validate relevant asset details.
 - **Step E:** Validate the details in the **History** tab on the asset page.
 
-### Challenges faced
+To see the complete working of the solution, I have prepared a video that you will find in this Repository in the name 'Demo Video.mp4'.
 
-- Handling dynamic UI elements and selectors that occasionally change or load asynchronously.
-- Ensuring the automation script waits efficiently for page elements without relying on fixed delays.
-- Managing random user assignment and unique asset naming to avoid duplication on repeated test runs.
+### Challenges faced during Development
 
+1. Handling dynamic UI elements and selectors that occasionally change or load asynchronously.
+   - In order to overcome this challenge, I created dynamic Xpath expression and stored it in a variable for flexible use. 
+2. Ensuring the automation script waits efficiently for page elements without relying on fixed delays.
+   - I used Playwright’s explicit wait methods such as `WaitForSelectorAsync` and `IsVisibleAsync` to wait for elements dynamically. This replaced fixed delays (`Thread.Sleep`), making the automation more reliable and faster.
+3. Managing random user assignment and unique asset naming to avoid duplication on repeated test runs.
+   - For managing random user assignment and unique asset naming, I generated random selections from available user lists and appended unique identifiers to asset names. This prevented duplication and ensured that each test run operated on distinct data, maintaining test independence and data integrity.
 ---
 
 ## Table of Contents
 
 - [Description](#description)
-- [Challenges faced](#challenges-faced)
+- [Challenges faced during Development](#challenges-faced-during-development)
 - [Installation](#installation)
 - [How to Run](#how-to-run)
 - [Output Screenshot](#output-screenshot)
@@ -39,6 +43,8 @@ The automation script performs these key steps in a single `Program.cs` file, or
    - [.NET 9.0 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/9.0)
    - [PowerShell 7.5.2](https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell)
    - Git [(to clone the repository)](https://github.com/OhacksS/Global360Automation.git)
+
+Install the above prerequisites tools and run the below steps in Windows Powershell.
 
 2. **Clone the repository:**
 
@@ -79,7 +85,7 @@ The script will launch a Chromium browser and perform all automation steps, incl
 ---
 ## Project Structure
  ├── Program.cs      # All automation steps (A to E) implemented in this single file<br>
- ├── SnipeitAutomation.cs       # Targets .NET 9.0 and uses Microsoft.Playwright v1.54.0 for browser automation.<br>
+ ├── SnipeitAutomation.csproj  # Targets .NET 9.0 and uses Microsoft.Playwright v1.54.0 for browser automation.<br>
  ├── README.md       # Project documentation
 
 --- 
@@ -88,5 +94,6 @@ Omkar Sankpal <br>
 Email: omkarsankpal45@gmail.com
 
 ---
+
 
 
