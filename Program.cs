@@ -96,7 +96,7 @@ class Program
         // Click dropdown to load users
         await page.Locator("#select2-assigned_user_select-container").ClickAsync();
        
-         await page.WaitForTimeoutAsync(3000);
+        await page.WaitForTimeoutAsync(3000);
         // Wait for the AJAX results to appear (adjust selector based on DOM)
         await page.WaitForSelectorAsync(".select2-results__option");
 
@@ -184,9 +184,12 @@ class Program
             Console.WriteLine("Status validated!");
         }
 
+        await page.WaitForTimeoutAsync(3000);
+
         //User details validation 
-        if (await page.Locator($"//div/a[text()='{UserName}']").IsVisibleAsync()) //validates UserName
+        if (await page.Locator($"//div[a[contains(normalize-space(text()), '{firstName}')]]").IsVisibleAsync()) //validates UserName
         {
+            await page.Mouse.WheelAsync(0, 100);
             if (await page.Locator($"//li[i[contains(@class,'fa-id-card')] and contains(normalize-space(.), '{userId}')]").IsVisibleAsync()) //validates UserId
             {
                 Console.WriteLine("User details validated!");
@@ -197,7 +200,7 @@ class Program
         Console.WriteLine("Step E: Validating History tab...");
         await page.Locator("a[href='#history']").ClickAsync(); //Navigate to History Tab
         await page.WaitForTimeoutAsync(3000);
-        if (await page.Locator($"//a[@data-original-title='user' and contains(normalize-space(text()), '{UserName}')]").IsVisibleAsync()) //checks if the user is correct
+        if (await page.Locator($"//a[@data-original-title='user' and contains(normalize-space(text()), '{lastName}')]").IsVisibleAsync()) //checks if the user is correct
         {
             if (await page.Locator($"//td[text()='checkout']").IsVisibleAsync()) // checks if checkout is process
             {
