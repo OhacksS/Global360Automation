@@ -42,18 +42,24 @@ The automation script performs these key steps in a single `Program.cs` file, or
 2. **Clone the repository:**
 
    ```bash
-   git clone <your-repository-url>
-   cd SnipeITAutomation
+   git clone https://github.com/OhacksS/Global360Automation.git
+   cd Global360Automation
+   ```
 
-3. **Restore dependencies:**
-  
+3. **Add Playwright package to your project**
+   ```bash
+   dotnet add package Microsoft.Playwright
+   ```
+4. **Restore dependencies:**
     ```bash
     dotnet restore
+    ```
 
 5. **Install Playwright browsers**
     ```bash
     pwsh bin/Debug/net9.0/playwright.ps1 install
-  
+    ```
+    
 ## How to Run
 
 Execute the following command to run the automation script:
@@ -64,6 +70,9 @@ dotnet run
 
 The script will launch a Chromium browser and perform all automation steps, including login, asset creation, verification, and history validation.
 
+## Output Screenshot
+![Automation Script Running](./Snipeitapp-console-output.png)
+
 ## Project Structure
  ├── Program.cs      # All automation steps (A to E) implemented in this single file<br>
  ├── SnipeitAutomation.cs       # Targets .NET 9.0 and uses Microsoft.Playwright v1.54.0 for browser automation.<br>
@@ -72,4 +81,5 @@ The script will launch a Chromium browser and perform all automation steps, incl
 ## Author
 Omkar Sankpal
 Email: omkarsankpal45@gmail.com
+
 
