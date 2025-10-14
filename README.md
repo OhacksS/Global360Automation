@@ -2,7 +2,7 @@
 
 ## Description
 
-This project automates asset management tasks on the [SnipeIT demo site](https://demo.snipeitapp.com/login) using **.NET 9.0**, **PowerShell 7.5.2**, and the latest version of **Microsoft Playwright** for browser automation.
+This project automates asset management tasks on the [SnipeIT site](https://demo.snipeitapp.com/login) using **.NET 9.0**, **PowerShell 7.5.2**, and the latest version of **Microsoft Playwright** for browser automation.
 
 The automation script performs these key steps in a single `Program.cs` file, organized from Step A to Step E:
 
@@ -94,6 +94,7 @@ Omkar Sankpal <br>
 Email: omkarsankpal45@gmail.com
 
 ---
+
 
 
 
